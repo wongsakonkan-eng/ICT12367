@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}
+หน้าแรก | MySite
+{% endblock %}
+
+{% block content %}
+
+<div class="p-5 mb-4 bg-light rounded-3 shadow">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold text-primary">ยินดีต้อนรับเข้าสู่เว็บไซต์</h1>
+        <p class="col-md-8 fs-5">
+            เว็บไซต์นี้สร้างด้วย Django Template และ Bootstrap เพื่อใช้เป็นตัวอย่างการทำ Template Inheritance
+        </p>
+        <a href="/form" class="btn btn-primary btn-lg">ไปที่แบบฟอร์ม</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-success">Django Template</h5>
+                <p class="card-text">
+                    ใช้ระบบ Template ของ Django ในการจัดการหน้าเว็บแบบเป็นโครงสร้าง
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-warning">Bootstrap 5</h5>
+                <p class="card-text">
+                    ใช้ Bootstrap ช่วยให้การออกแบบเว็บสวยงาม และ Responsive
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-danger">Form Page</h5>
+                <p class="card-text">
+                    มีหน้าแบบฟอร์มสำหรับบันทึกข้อมูลประชากร
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

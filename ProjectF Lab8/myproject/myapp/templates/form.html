@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}
+แบบฟอร์มประชากร | MySite
+{% endblock %}
+
+{% block content %}
+
+<div class="card shadow p-4">
+    <h2 class="text-primary">แบบฟอร์มบันทึกข้อมูลประชากร</h2>
+    <p>กรุณากรอกข้อมูลให้ครบถ้วน</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label class="form-label">ชื่อ</label>
+            <input type="text" name="firstname" class="form-control" placeholder="กรอกชื่อ">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">นามสกุล</label>
+            <input type="text" name="lastname" class="form-control" placeholder="กรอกนามสกุล">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">เพศ</label>
+            <select name="gender" class="form-select">
+                <option value="">-- เลือกเพศ --</option>
+                <option value="ชาย">ชาย</option>
+                <option value="หญิง">หญิง</option>
+                <option value="อื่นๆ">อื่นๆ</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">อายุ</label>
+            <input type="number" name="age" class="form-control" placeholder="กรอกอายุ">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">จังหวัด</label>
+            <input type="text" name="province" class="form-control" placeholder="กรอกจังหวัด">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">เบอร์โทรศัพท์</label>
+            <input type="text" name="phone" class="form-control" placeholder="กรอกเบอร์โทร">
+        </div>
+
+        <button type="submit" class="btn btn-success">บันทึกข้อมูล</button>
+        <button type="reset" class="btn btn-secondary">ล้างข้อมูล</button>
+    </form>
+
+    {% if result %}
+        <hr>
+        <div class="alert alert-info mt-3">
+            <h5>ข้อมูลที่คุณกรอก</h5>
+            <p><b>ชื่อ:</b> {{ result.firstname }}</p>
+            <p><b>นามสกุล:</b> {{ result.lastname }}</p>
+            <p><b>เพศ:</b> {{ result.gender }}</p>
+            <p><b>อายุ:</b> {{ result.age }}</p>
+            <p><b>จังหวัด:</b> {{ result.province }}</p>
+            <p><b>เบอร์โทร:</b> {{ result.phone }}</p>
+        </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}
