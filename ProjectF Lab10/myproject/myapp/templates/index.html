@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}
+หน้าแรก | MySite
+{% endblock %}
+
+{% block content %}
+
+<div class="p-4 bg-light rounded shadow mb-4">
+    <h2 class="text-primary">รายชื่อประชากร</h2>
+    <p>แสดงข้อมูลจาก Model Person ในรูปแบบตาราง</p>
+</div>
+
+<table class="table table-bordered table-striped table-hover shadow">
+    <thead class="table-primary">
+        <tr>
+            <th>ลำดับ</th>
+            <th>ชื่อ</th>
+            <th>อายุ</th>
+            <th>วันที่บันทึก</th>
+            <th class="text-center">จัดการ</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for p in persons %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.age }}</td>
+            <td>{{ p.date }}</td>
+
+            <!-- ปุ่มอยู่กึ่งกลาง -->
+            <td class="text-center">
+
+                <!-- ปุ่ม Edit สีชมพู -->
+                <button class="btn btn-pink text-white btn-sm">
+                    Edit
+                </button>
+
+                <!-- ปุ่ม Delete สีส้ม -->
+                <button class="btn btn-warning text-white btn-sm">
+                    Delete
+                </button>
+
+            </td>
+        </tr>
+
+        {% empty %}
+        <tr>
+            <td colspan="5" class="text-center text-danger">
+                ยังไม่มีข้อมูลในระบบ
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
